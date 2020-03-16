@@ -2,6 +2,14 @@
   margin-top: 1rem;
 }
 
+.toolbar {
+  margin-bottom: 1rem;
+}
+
+/* .card {
+  margin-right: 1rem;
+} */
+
 /* .Bookcase, .BookPhoto {
   display: flex;
   flex-wrap: wrap;

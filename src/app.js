@@ -5,7 +5,7 @@ import Bookcase from './pages/bookcase.js'
 export default class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <Header />
         <Bookcase />
       </div>
