@@ -5,7 +5,7 @@ export default class Book extends React.Component {
     const book = this.props.book;
 
     return (
-      <div className="card mb-3 col-6 col-sm-4 col-md-3 col-lg-2" href="#ex">
+      <div className="card mb-3 col-6 col-sm-4 col-md-3 col-lg-2" href="#">
           <div>
             <img src={require(`../back/books/${book.photo}`)} alt="not today" className="card-img-top" />
           </div>
