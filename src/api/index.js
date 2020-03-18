@@ -10,3 +10,9 @@ export const getBooks = async (params) => {
   })
 }
 
+export const getBookById = async (id) => {
+  return new Promise((resolve, reject) => {
+    let bookResponse = bookStorage.find(book => book.id === id);
+    resolve(bookResponse);
+  })
+}

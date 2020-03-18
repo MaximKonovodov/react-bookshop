@@ -1,9 +1,13 @@
-.card-img-top {
-  margin-top: 1rem;
+.card-author {
+  margin-top: -1rem;
 }
 
 .toolbar {
   margin-bottom: 1rem;
+}
+
+.card {
+  border: none;
 }
 
 /* .card {
