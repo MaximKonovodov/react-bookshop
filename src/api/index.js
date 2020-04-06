@@ -1,4 +1,4 @@
-import bookStorage from '../back/books.json';
+import bookStorage from '../server/books.json';
 
 export const getBooks = async (params) => {
   return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ export const getBooks = async (params) => {
 
 export const getBookById = async (id) => {
   return new Promise((resolve, reject) => {
-    let bookResponse = bookStorage.find(book => book.id === id);
+    let bookResponse = bookStorage.find(book => `${book.id}` === id);
     resolve(bookResponse);
   })
 }

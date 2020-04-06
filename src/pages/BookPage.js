@@ -1,32 +1,27 @@
 import React from 'react';
-import { getBookById } from '../../api/index'
-import star from '../../images/star.jpeg'
-import Review from './review.js'
+import { Link } from "react-router-dom";
+
+import { getBookById } from '../api'
+import star from '../media/star.jpeg'
+import Review from './components/review.js'
 
 export default class BookPage extends React.Component {
   constructor(props) {
     super(props);
-    this.handleCloseBookPage = this.handleCloseBookPage.bind(this)
-
     this.state = {
       book: {},
     }
   }
-
+  
   loadBook = async (id) => {
     const book = await getBookById(id);
-
     this.setState({
       book
     })
   }
 
   componentDidMount() {
-    this.loadBook(this.props.id)
-  }
-
-  handleCloseBookPage() {
-    this.props.onCloseBookPage();
+    this.loadBook(this.props.match.params.id)
   }
 
   render() {
@@ -35,15 +30,17 @@ export default class BookPage extends React.Component {
     return (
       <div className="container">
 
-        <button type="button" className="btn btn-light tool-bar" onClick={(ev) => this.handleCloseBookPage()}>
-          Back
+        <Link to='/'>
+          <button type="button" className="btn btn-light tool-bar" >
+            Back
           </button>
+        </Link>
 
         <div className="card">
           <div className="row no-gutters">
 
             <div className="col-md-4 col-lg-3 col-xl-3">
-              <img src={require(`../../back/books/${this.state.book.photo}`)} alt='not your day' className="card-img"></img>
+              <img src={require(`../server/books/${this.state.book.photo}`)} alt='not your day' className="card-img"></img>
             </div>
 
             <div className="col">
@@ -52,7 +49,7 @@ export default class BookPage extends React.Component {
                 <span className=" width">{book.name}</span>
                 <small className="text-muted width">{book.author}</small>
 
-                <div class="d-flex justify-content-between align-items-center mt-auto width">
+                <div className="d-flex justify-content-between align-items-center mt-auto width">
                   <span><img src={star} alt="rate" className="rate"></img> {book.rating}</span>
                   <span>${book.price}</span>
                 </div>
@@ -78,7 +75,7 @@ export default class BookPage extends React.Component {
             />
           ))}
         </div>
-        
+
       </div>
     )
   }

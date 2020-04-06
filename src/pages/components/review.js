@@ -1,5 +1,5 @@
 import React from 'react';
-import star from '../../images/star.jpeg'
+import star from '../../media/star.jpeg'
 
 export default class Review extends React.Component {
 

@@ -25,3 +25,7 @@ yarn-error.log*
 # placeholder
 
 /src/images/author-placeholder_files
+
+# server
+
+/src/server

@@ -1,17 +1,16 @@
 import React from 'react';
-import { getBooks } from '.././api'
-import Book from '../ui/book.js'
-import Toolbar from './components/toolbar.js'
+
+import { getBooks } from '../api'
+
+import Book from './components/book.js'
+// import Toolbar from './components/toolbar.js'
 
 export default class Bookcase extends React.Component {
   constructor(props) {
     super(props);
-    this.handleOpenBookPage = this.handleOpenBookPage.bind(this);
 
     this.state = {
-      books: [],
-      isBookPage: false,
-      bookID: 0,
+      books: []
     }
   }
 
@@ -27,14 +26,10 @@ export default class Bookcase extends React.Component {
     this.loadBooks()
   }
 
-  handleOpenBookPage(bookID) {
-    this.props.onOpenBookpage(bookID)
-  }
-
   render() {
     return (
       <div>
-        <div className="tool-bar"><Toolbar /></div>
+        {/* <div className="tool-bar"><Toolbar /></div> */}
 
         <div className="album py-5 bg-light">
           <div className="container">
@@ -44,7 +39,6 @@ export default class Bookcase extends React.Component {
                 <Book
                   book={book}
                   key={book.id}
-                  onBookPage={this.handleOpenBookPage}
                 />
               ))}
 
