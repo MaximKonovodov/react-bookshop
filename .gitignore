@@ -21,11 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# placeholder
-
-/src/images/author-placeholder_files
-
-# server
-
-/src/server

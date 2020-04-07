@@ -15,8 +15,7 @@ export default class Bookcase extends React.Component {
   }
 
   loadBooks = async () => {
-    let books = await getBooks();
-
+    const books = await getBooks();
     this.setState({
       books
     })

@@ -1,18 +1,21 @@
-import bookStorage from '../server/books.json';
+import axios from 'axios';
 
 export const getBooks = async (params) => {
-  return new Promise((resolve, reject) => {
-    let bookResponse = bookStorage;
-    if (params) {
-      //
-    }
-    resolve(bookResponse);
-  })
+  return axios.get('http://localhost:4000/books')
+    .then((res) => {
+      return res.data.books
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 export const getBookById = async (id) => {
-  return new Promise((resolve, reject) => {
-    let bookResponse = bookStorage.find(book => `${book.id}` === id);
-    resolve(bookResponse);
-  })
+  return axios.get(`http://localhost:4000/book/id${id}`)
+    .then((res) => {
+      return res.data.book
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
