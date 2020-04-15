@@ -9,7 +9,7 @@ export default class Book extends React.Component {
     const { book } = this.props;
     return (
       <div className="col book-card">
-        <Link to={`/book/id${book.id}`}>
+        <Link to={`/book/${book.id}`}>
           <div className="card shadow-sm">
 
             <img src={`http://localhost:4000/books/${book.photo}`} alt="not today" className="card-img-top book-photo " />

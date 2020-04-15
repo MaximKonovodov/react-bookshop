@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
         <Switch>
           <Route exact path='/' component={Bookcase} />
-          <Route path={'/book/id:id'} component={BookPage} />
+          <Route path={'/book/:id'} component={BookPage} />
           {/* <Route path='/auth' component={Auth} /> */}
         </Switch>
 
