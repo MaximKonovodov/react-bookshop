@@ -1,4 +1,4 @@
-.book-card> a {
+.book-card> a, .nav-item>a {
   text-decoration: none!important;
 }
 
@@ -28,22 +28,58 @@
 }
 
 .logo {
-  margin-left: 10%;
-  height: 200px;
-  width: 185px;
+  height: 70px;
+  width: 64px;
 }
 
 .width-fill {
   width: -webkit-fill-available;
 }
 
+body {
+  min-height: 75rem;
+  padding-top: 6.5rem;
+}
+
+.form-signin {
+  text-align: center!important;
+  height: 100%;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 @media (max-width: 576px) {
-  .logo {
+  /* .logo {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 23%;
     max-height: 100px;
-  }
+  } */
 
   .book-photo {
     height: 210px;

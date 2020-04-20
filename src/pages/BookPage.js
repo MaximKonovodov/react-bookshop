@@ -34,7 +34,7 @@ export default class BookPage extends React.Component {
     return (
       <div className="container">
 
-        <Link to='/'>
+        <Link to='/books'>
           <button type="button" className="btn btn-light tool-bar" >
             Back
           </button>
