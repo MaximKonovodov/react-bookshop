@@ -21,13 +21,13 @@ export default class Header extends React.Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to='/auth'>
-                    <span className="nav-link">Авторизация</span>
+                  <Link to='/profile'>
+                    <span className="nav-link">Профиль</span>
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="mt-2 mt-md-0 profile">
+            {/* <div className="mt-2 mt-md-0 profile">
               <svg className="bd-placeholder-img mr-3 align-self-center" width="70" height="70"
                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
                 role="img" aria-label="Placeholder: 64x64"
@@ -36,7 +36,7 @@ export default class Header extends React.Component {
                 <rect width="100%" height="100%" fill="#868e96"></rect>
                 <text x="18%" y="50%" fill="#dee2e6" dy=".3em">64x64</text>
               </svg>
-            </div>
+            </div> */}
           </div>
         </nav>
 

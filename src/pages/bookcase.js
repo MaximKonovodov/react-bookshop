@@ -29,7 +29,7 @@ export default class Bookcase extends React.Component {
       <div>
         {/* <div className="tool-bar"><Toolbar /></div> */}
 
-        <div className="album py-5 bg-light">
+        <div className="album py-5">
           <div className="container">
             <div className="row row-cols-0.1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 

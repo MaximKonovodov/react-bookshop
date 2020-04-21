@@ -8,7 +8,7 @@ import {
 import Header from './ui/header.js'
 import Bookcase from './pages/bookcase.js'
 import BookPage from './pages/BookPage.js'
-import Auth from './pages/auth.js'
+import Profile from './pages/profile.js'
 
 export default class App extends React.Component {
 
@@ -19,8 +19,8 @@ export default class App extends React.Component {
 
         <Switch>
           <Route exact path='/books' component={Bookcase} />
-          <Route path={'/book/:id'} component={BookPage} />
-          <Route path='/auth' component={Auth} />
+          <Route path='/book/:id' component={BookPage} />
+          <Route path='/profile' component={Profile} />
         </Switch>
 
       </div>

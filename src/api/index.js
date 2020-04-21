@@ -19,3 +19,13 @@ export const getBookById = async (id) => {
       console.log(err)
     })
 }
+
+export const createBook = async (book) => {
+  axios.post(`http://localhost:4000/api/book/create:book`, book)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
