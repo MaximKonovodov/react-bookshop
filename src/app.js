@@ -1,29 +1,38 @@
-import React from 'react';
+import React from "react";
 import {
   Switch,
   Route,
 } from "react-router-dom";
 
+import { AuthContext } from "./context/AuthContext";
+import { useAuth } from "./hooks/auth.hook";
+import { useRoutes } from "./pages";
 
-import Header from './ui/header.js'
-import Bookcase from './pages/bookcase.js'
-import BookPage from './pages/BookPage.js'
-import Profile from './pages/profile.js'
+import Header from "./ui/header.js";
 
-export default class App extends React.Component {
 
-  render() {
-    return (
-      <div>
+function App() {
+  const { token, login, logout, userId, ready } = useAuth();
+  const isAuthenticated = !!token;
+  const routes = useRoutes(false);
+
+  // if (!ready) {
+  //   return <Loader />
+  // }
+
+  return (
+    <AuthContext.Provider value={{
+      token, login, logout, userId, isAuthenticated
+    }}>
+      <Route>
         <Header />
-
-        <Switch>
-          <Route exact path='/books' component={Bookcase} />
-          <Route path='/book/:id' component={BookPage} />
-          <Route path='/profile' component={Profile} />
-        </Switch>
-
-      </div>
-    );
-  }
+        {/* { isAuthenticated && <Navbar /> } */}
+        <div className="container">
+          {routes}
+        </div>
+      </Route>
+    </AuthContext.Provider >
+  );
 }
+
+export default App;

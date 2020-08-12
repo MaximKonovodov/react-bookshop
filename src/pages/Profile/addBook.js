@@ -1,5 +1,5 @@
 import React from 'react'
-import { Formik } from 'formik'
+import { Formik } from 'Formik'
 
 export default class addBookBlock extends React.Component {
   render() {
@@ -12,8 +12,8 @@ export default class addBookBlock extends React.Component {
               type="text"
               name="name"
               placeholder="name"
-              onChange={formik.handleChange}
-              value={formik.values.name}
+              onChange={Formik.handleChange}
+              value={Formik.values.name}
             />
           </div>
           <div>
@@ -21,8 +21,8 @@ export default class addBookBlock extends React.Component {
               type="text"
               name="author"
               placeholder="author"
-              onChange={formik.handleChange}
-              value={formik.values.author}
+              onChange={Formik.handleChange}
+              value={Formik.values.author}
             />
           </div>
           <div>
@@ -30,8 +30,8 @@ export default class addBookBlock extends React.Component {
               type="text"
               name="price"
               placeholder="price"
-              onChange={formik.handleChange}
-              value={formik.values.price}
+              onChange={Formik.handleChange}
+              value={Formik.values.price}
             />
           </div>
           <div>
@@ -39,8 +39,8 @@ export default class addBookBlock extends React.Component {
               type="text"
               name="descr"
               placeholder="description"
-              onChange={formik.handleChange}
-              value={formik.values.descr}
+              onChange={Formik.handleChange}
+              value={Formik.values.descr}
             />
           </div>
           <button type="submit">Загрузить</button>

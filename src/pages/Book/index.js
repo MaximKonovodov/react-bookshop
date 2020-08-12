@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import { getBookById } from '../api'
+import { getBookById } from '../../api';
 
-import starImg from '../media/star.jpeg'
+import starImg from '../../media/star.jpeg';
 
-import Review from './components/review.js'
+import Review from './review.js';
 
 export default class BookPage extends React.Component {
   constructor(props) {

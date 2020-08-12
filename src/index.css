@@ -72,6 +72,11 @@ body {
   border-top-right-radius: 0;
 }
 
+.btn-block+.btn-block {
+  margin-top: 0rem;
+  margin-left: .5rem;
+}
+
 @media (max-width: 576px) {
   /* .logo {
     -ms-flex: 0 0 50%;

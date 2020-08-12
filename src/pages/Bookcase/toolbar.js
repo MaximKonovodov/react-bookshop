@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 export default class Toolbar extends React.Component {
   constructor(props) {
     super(props);
@@ -11,13 +11,13 @@ export default class Toolbar extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-default" onClick={() => console.log('sort by name')}>
+        <button className="btn btn-default" onClick={() => console.log("sort by name")}>
           Sort by name
         </button>
-        <button className="btn btn-default" onClick={() => console.log('sort by age')}>
+        <button className="btn btn-default" onClick={() => console.log("sort by age")}>
           Sort by age
         </button>
-        <button className="btn btn-danger" onClick={() => console.log('reset')}>
+        <button className="btn btn-danger" onClick={() => console.log("reset")}>
           Reset
         </button>
       </div>

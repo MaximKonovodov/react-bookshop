@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { getBooks } from '../api'
+import { getBooks } from '../../api'
 
-import Book from './components/book.js'
+import Book from './book.js'
 // import Toolbar from './components/toolbar.js'
 
 export default class Bookcase extends React.Component {

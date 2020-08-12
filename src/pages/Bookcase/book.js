@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import starImg from '../../media/star.jpeg'
+import starImg from "../../media/star.jpeg";
 
 export default class Book extends React.Component {
 
@@ -28,6 +28,6 @@ export default class Book extends React.Component {
           </div>
         </Link>
       </div>
-    )
+    );
   }
 }
