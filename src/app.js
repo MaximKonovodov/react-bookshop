@@ -12,9 +12,9 @@ import Header from "./ui/header.js";
 
 
 function App() {
-  const { token, login, logout, userId, ready } = useAuth();
+  const { token, login, logout, userId, email, ready } = useAuth();
   const isAuthenticated = !!token;
-  const routes = useRoutes(false);
+  const routes = useRoutes(isAuthenticated);
 
   // if (!ready) {
   //   return <Loader />

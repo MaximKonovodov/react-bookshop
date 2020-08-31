@@ -4,28 +4,27 @@ import { useHttp } from "../../hooks/http.hook";
 import { useMessage } from "../../hooks/message.hook.js";
 import { AuthContext } from "../../context/AuthContext";
 
-import { Message } from "./message"
+import ToastMessage from "./message";
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext);
   const message = useMessage();
   const { loading = null, request, error, clearError } = useHttp();
   const [form, setForm] = useState({
-    email: "", password: ""
+    email: "",
+    password: "",
   });
 
-  useEffect(() => {
-    // message(error);
-    // setTimeout(() => {
-    //   document.getElementById("toast").className = "toast";
-    //   clearError();
-    // }, 1200); 
-  },
-    // [error]
-    [error, message, clearError]
-  );
+  // useEffect(() => {
+  // if (!error) return
+  //   message(error);
+  //   // clearError();
+  // },
+  // [error]
+  //   [error, message, clearError]
+  // );
 
-  const changeHandler = event => {
+  const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
@@ -33,31 +32,25 @@ export const AuthPage = () => {
     try {
       const data = await request("/api/auth/registration", "POST", { ...form });
       message(data.message);
-    } catch (e) { }
+    } catch (e) {}
   };
 
   const loginHandler = async () => {
     try {
       const data = await request("/api/auth/login", "POST", { ...form });
-      auth.login(data.token, data.userId);
-    } catch (e) { }
+      auth.login(data.token, data.userId, data.email);
+    } catch (e) {}
   };
 
   return (
     <>
-      <Message />
+      <ToastMessage errors={error} clearError={clearError} />
 
       <form className="form-signin">
-
         {/* <img className="mb-4" src={iconImg} alt="" width="72" height="72" /> */}
-        <h1 className="h3 mb-3 font-weight-normal">
-          Авторизация
-        </h1>
+        <h1 className="h3 mb-3 font-weight-normal">Авторизация</h1>
 
-        <label
-          htmlFor="inputEmail"
-          className="sr-only"
-        >
+        <label htmlFor="inputEmail" className="sr-only">
           Email address
         </label>
 
@@ -70,10 +63,7 @@ export const AuthPage = () => {
           onChange={changeHandler}
         />
 
-        <label
-          htmlFor="inputPassword"
-          className="sr-only"
-        >
+        <label htmlFor="inputPassword" className="sr-only">
           Password
         </label>
 
@@ -97,10 +87,11 @@ export const AuthPage = () => {
           <button
             className="btn btn-lg btn-primary btn-block"
             type="submit"
+            onClick={loginHandler}
             disabled={loading}
           >
             Log in
-        </button>
+          </button>
 
           <button
             className="btn btn-lg btn-primary btn-block"
@@ -109,12 +100,10 @@ export const AuthPage = () => {
             disabled={loading}
           >
             Registration
-        </button>
+          </button>
         </div>
 
-        <p className="mt-5 mb-3 text-muted">
-          &copy; 2020-2020
-        </p>
+        <p className="mt-5 mb-3 text-muted">&copy; 2020-2020</p>
       </form>
     </>
   );

@@ -1,21 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
-export const Message = () => {
+import Toast from "react-bootstrap/Toast";
+
+const ToastMessage = (props) => {
+  const parDivStyles = {
+    position: "absolute",
+    top: 100,
+    right: 10,
+    width: "250px",
+    minHeight: "200px",
+    zIndex: 5,
+  };
+
+  const [show, toggleShow] = useState(false);
+
+  useEffect(() => {
+    if (props.errors) {
+      toggleShow(true);
+    }
+  }, [props.errors]);
 
   return (
-    <div aria-live="polite" aria-atomic="true" style={{ position: "relative", minheight: "200px" }}>
-      <div style={{ position: "absolute", top: "0", right: "0" }}>
-
-
-      <div id="toast2" data-delay="500" className="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div id="notification" className="toast-body text-white bg-dark">asdasd</div>
-      </div>
-
-      <div id="toast1" data-delay="1800" className="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div id="notification1" className="toast-body text-white bg-dark">kokokoko</div>
-      </div>
-
-      </div>
+    <div aria-live="polite" aria-atomic="true" style={parDivStyles}>
+      <Toast
+        className="bg-dark text-light"
+        show={show}
+        onClose={() => {
+          toggleShow(!show);
+          props.clearError();
+        }}
+        delay={2000}
+        autohide
+      >
+        <Toast.Body>{props.errors}</Toast.Body>
+      </Toast>
     </div>
-  )
-}
+  );
+};
+
+export default ToastMessage;
