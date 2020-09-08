@@ -8,7 +8,6 @@ const Messages = (props) => {
       role="tabpanel"
       aria-labelledby="mes-tab"
     >
-      <h2></h2>
 
       <hr />
       <form className="form" action="##" method="post" id="registrationForm">
