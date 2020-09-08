@@ -22,9 +22,9 @@ export const getBookById = async (id) => {
     });
 };
 
-export const createBook = async (book) => {
+export const createBook = async (data) => {
   axios
-    .post("http://localhost:4000/api/book/create:book", book)
+    .post("http://localhost:4000/api/book/createBook", data)
     .then((res) => {
       console.log(res);
     })
