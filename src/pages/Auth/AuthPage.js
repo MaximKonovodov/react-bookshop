@@ -1,28 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { useHttp } from "../../hooks/http.hook";
-import { useMessage } from "../../hooks/message.hook.js";
+import useHttp from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";
 
 import ToastMessage from "./message";
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext);
-  const message = useMessage();
   const { loading = null, request, error, clearError } = useHttp();
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-
-  // useEffect(() => {
-  // if (!error) return
-  //   message(error);
-  //   // clearError();
-  // },
-  // [error]
-  //   [error, message, clearError]
-  // );
 
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -31,7 +20,6 @@ export const AuthPage = () => {
   const registerHandler = async () => {
     try {
       const data = await request("/api/auth/registration", "POST", { ...form });
-      message(data.message);
     } catch (e) {}
   };
 
@@ -60,6 +48,7 @@ export const AuthPage = () => {
           type="email"
           className="form-control"
           placeholder="Email"
+          required
           onChange={changeHandler}
         />
 
@@ -73,6 +62,7 @@ export const AuthPage = () => {
           type="password"
           className="form-control"
           placeholder="Password"
+          required
           onChange={changeHandler}
         />
 
@@ -94,7 +84,7 @@ export const AuthPage = () => {
           </button>
 
           <button
-            className="btn btn-lg btn-primary btn-block"
+            className="btn btn-lg btn-outline-dark btn-block"
             type="submit"
             onClick={registerHandler}
             disabled={loading}
