@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from './axios';
 
 export const getBooks = async (params) => {
   return axios
-    .get("http://localhost:4000/api/books")
+    .get(`/books/${params}`)
     .then((res) => {
       return res.data.books;
     })
@@ -13,7 +13,7 @@ export const getBooks = async (params) => {
 
 export const getBookById = async (id) => {
   return axios
-    .get(`http://localhost:4000/api/book/${id}`)
+    .get(`/books/${id}`)
     .then((res) => {
       return res.data.book;
     })
@@ -24,7 +24,7 @@ export const getBookById = async (id) => {
 
 export const createBook = async (data) => {
   axios
-    .post("http://localhost:4000/api/book/createBook", data)
+    .post('/books/createBook', data)
     .then((res) => {
       console.log(res);
     })
