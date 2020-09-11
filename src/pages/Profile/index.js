@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import male from "../../media/Naruto.jpg";
-import female from "../../media/Sakura.png";
+import male from '../../media/Naruto.jpg';
+import female from '../../media/Sakura.png';
 
-import DataNav from "./dataNav";
-import UserData from "./userData";
-import Messages from "./messages";
-import Settings from "./settings";
-// import AddBook from './addBook'
+import DataNav from './dataNav';
+import UserData from './userData';
+import Messages from './messages';
+import Settings from './settings';
 
 const Profile = () => {
   const [person, setPerson] = useState(null);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("userData"));
+    const data = JSON.parse(localStorage.getItem('userData'));
     setPerson(data && data.email);
   });
 
@@ -25,14 +24,14 @@ const Profile = () => {
         </div>
       </div> */}
 
-      <div className="row">
-        <div className="col-sm-3">
-          <div className="text-center">
+      <div className='row'>
+        <div className='col-sm-3'>
+          <div className='text-center'>
             <img
-              src={female}
-              // src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
-              className="avatar img-thumbnail"
-              alt="avatar"
+              // src={female}
+              src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png'
+              className='avatar img-thumbnail'
+              alt='avatar'
             />
             {/* <h6>Upload a different photo...</h6> */}
             {/* <input
@@ -43,9 +42,9 @@ const Profile = () => {
           <hr />
           <br />
         </div>
-        <div className="col-sm-9">
+        <div className='col-sm-9'>
           <DataNav />
-          <div className="tab-content" id="myTabContent">
+          <div className='tab-content' id='myTabContent'>
             <UserData person={person} />
             <Messages />
             <Settings />
