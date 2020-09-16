@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
-import { createBook } from '../../api';
+import { createBook } from '../../../api';
 
-const Settings = (props) => {
+const AddBook = () => {
   const [form, setForm] = useState({
     name: '',
     description: '',
@@ -25,7 +26,7 @@ const Settings = (props) => {
     data.append('form', form);
     data.append('photo', file);
 
-    const resData = createBook(data);
+    createBook(data);
   };
 
   return (
@@ -46,7 +47,6 @@ const Settings = (props) => {
                   type='text'
                   value={form.name}
                   name='name'
-                  placeholder='Страх и отвращение в Лас-Вегасе'
                   required
                   onChange={changeHandler}
                 />
@@ -62,7 +62,6 @@ const Settings = (props) => {
                   type='text'
                   value={form.author}
                   name='author'
-                  placeholder='Хантер Стоктон Томпсон'
                   required
                   onChange={changeHandler}
                 />
@@ -135,7 +134,6 @@ const Settings = (props) => {
               rows='7'
               value={form.example_text}
               name='example_text'
-              placeholder='У нас было 2 пакетика травы, 75 таблеток мескалина, 5 упаковок кислоты, полсолонки кокаина и целое множество транквилизаторов всех сортов и расцветок, депрессанты, а также текила, ром, ящик пива, пинта чистого эфира и 2 дюжины ампул амилнитрита. Не то чтобы это был необходимый запас для поездки, но если начал собирать дурь, становится трудно остановиться. Единственное, что вызывало у меня опасение — это эфир. Ничто в мире не бывает более беспомощным, безответственным и порочным, чем эфирные зомби. Я знал, что рано или поздно мы перейдем и на эту дрянь.'
               onChange={changeHandler}
             />
           </div>
@@ -166,4 +164,4 @@ const Settings = (props) => {
     </div>
   );
 };
-export default Settings;
+export default AddBook;

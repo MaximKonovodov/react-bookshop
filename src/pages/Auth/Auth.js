@@ -3,9 +3,9 @@ import React, { useContext, useState } from 'react';
 import useHttp from '../../hooks/http.hook';
 import { AuthContext } from '../../context/AuthContext';
 
-import ToastMessage from './message';
+import ToastMessage from './components/Message';
 
-export const AuthPage = () => {
+const AuthPage = (props, context) => {
   const auth = useContext(AuthContext);
   const { loading = null, request, error, clearError } = useHttp();
   const [form, setForm] = useState({
@@ -19,14 +19,21 @@ export const AuthPage = () => {
 
   const registerHandler = async () => {
     try {
-      const data = await request('/api/auth/registration', 'POST', { ...form });
+      await request('http://localhost:4000/api/auth/registration', 'POST', {
+        ...form,
+      });
     } catch (e) {}
   };
 
   const loginHandler = async () => {
     try {
-      const data = await request('/api/auth/login', 'POST', { ...form });
-      auth.login(data.token, data.email);
+      const data = await request(
+        'http://localhost:4000/api/auth/login',
+        'POST',
+        { ...form }
+      );
+
+      auth.login(data.token);
     } catch (e) {}
   };
 
@@ -66,13 +73,6 @@ export const AuthPage = () => {
           onChange={changeHandler}
         />
 
-        {/* <div className="checkbox mb-3">
-        <label>
-          <input type="checkbox" />
-              Remember me
-            </label>
-      </div> */}
-
         <div className='d-flex'>
           <button
             className='btn btn-lg btn-primary btn-block'
@@ -98,3 +98,4 @@ export const AuthPage = () => {
     </>
   );
 };
+export default AuthPage;

@@ -1,5 +1,7 @@
-.book-card>a, .nav-item>a, span>a {
-  text-decoration: none!important;
+.book-card > a,
+.nav-item > a,
+span > a {
+  text-decoration: none !important;
 }
 
 .text-orange {
@@ -7,7 +9,7 @@
 }
 
 .text-orange:hover {
-color: #bc580f;
+  color: #bc580f;
 }
 
 .book-photo {
@@ -49,7 +51,7 @@ body {
 }
 
 .form-signin {
-  text-align: center!important;
+  text-align: center !important;
   height: 100%;
   width: 100%;
   max-width: 330px;
@@ -73,21 +75,21 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signin input[type='email'] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.form-signin input[type='password'] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.btn-block+.btn-block {
+.btn-block + .btn-block {
   margin-top: 0rem;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 576px) {
@@ -103,4 +105,14 @@ body {
   .book-card {
     height: 370px;
   }
+}
+
+.input-group-append,
+.input-group-append > span {
+  flex-grow: 1;
+}
+
+.input-group {
+  padding-bottom: 0.1rem;
+  padding-top: 0.1rem;
 }

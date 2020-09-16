@@ -8,13 +8,10 @@ import { useRoutes } from './pages';
 import Header from './ui/header.js';
 
 function App() {
-  const { login, logout, token, email, ready } = useAuth();
-  const isAuthenticated = !!token;
+  const { login, logout, token } = useAuth();
+  const isAuthenticated = true;
+  // !!token;
   const routes = useRoutes(isAuthenticated);
-
-  // if (!ready) {
-  //   return <Loader />
-  // }
 
   return (
     <AuthContext.Provider
@@ -22,13 +19,12 @@ function App() {
         token,
         login,
         logout,
-        email,
         isAuthenticated,
       }}
     >
       <Route>
         {isAuthenticated && <Header />}
-        <div className='container'>{routes}</div>
+        {routes}
       </Route>
     </AuthContext.Provider>
   );

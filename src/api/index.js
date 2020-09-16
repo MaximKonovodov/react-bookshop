@@ -1,34 +1,34 @@
 import axios from './axios';
 
-export const getBooks = async (params) => {
+export const getBooks = (params) => {
   return axios
     .get(`/books/${params}`)
     .then((res) => {
-      return res.data.books;
+      return res.data;
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
 };
 
-export const getBookById = async (id) => {
+export const getBookById = (id) => {
   return axios
     .get(`/books/${id}`)
     .then((res) => {
-      return res.data.book;
+      return res;
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
 };
 
-export const createBook = async (data) => {
-  axios
+export const createBook = (data) => {
+  return axios
     .post('/books/createBook', data)
     .then((res) => {
-      console.log(res);
+      return res.data;
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
 };

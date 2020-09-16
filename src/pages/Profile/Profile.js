@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-import male from '../../media/Naruto.jpg';
-import female from '../../media/Sakura.png';
+// import male from '../../media/Naruto.jpg';
+// import female from '../../media/Sakura.png';
 
-import DataNav from './dataNav';
-import UserData from './userData';
-import Messages from './messages';
-import Settings from './settings';
+import DataNav from './components/DataNav';
+import UserData from './components/UserData';
+import BookCollection from './components/BookCollection';
+import AddBook from './components/AddBook';
 
 const Profile = () => {
   const [person, setPerson] = useState(null);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('userData'));
-    setPerson(data && data.email);
-  });
+    setPerson('Name');
+  }, []);
 
   return (
     <div>
@@ -30,7 +29,7 @@ const Profile = () => {
             <img
               // src={female}
               src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png'
-              className='avatar img-thumbnail'
+              className='avatar'
               alt='avatar'
             />
             {/* <h6>Upload a different photo...</h6> */}
@@ -46,8 +45,8 @@ const Profile = () => {
           <DataNav />
           <div className='tab-content' id='myTabContent'>
             <UserData person={person} />
-            <Messages />
-            <Settings />
+            <BookCollection />
+            <AddBook />
           </div>
         </div>
       </div>

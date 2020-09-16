@@ -1,31 +1,25 @@
 import axios from 'axios';
 
+import { getItem } from '../utils/localStorage';
+const TOKEN = 'TOKEN';
+
 const axiosApiInstance = axios.create({
-  baseURL: 'http://localhost:4000/api/',
-  timeout: 25000,
+  baseURL: 'http://localhost:4000/api',
 });
 
 // Request interceptor for API calls
-axiosApiInstance.interceptors.request.use(
-  async (config) => {
-    const token = await JSON.parse(localStorage.getItem('userData')).token;
-    config.headers = {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
-    };
-    return config;
-  },
-  (error) => {
-    Promise.reject(error);
-  }
-);
+axiosApiInstance.interceptors.request.use((config) => {
+  const token = getItem(TOKEN);
+  config.headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  return config;
+});
 
 // Response interceptor for API calls
-// axiosApiInstance.interceptors.response.use(
-//   (response) => {
-//     return response;
-//   },
+axiosApiInstance.interceptors.response.use((response) => {
+  return response.data;
+});
 //   async function (error) {
 //     const originalRequest = error.config;
 //     if (error.response.status === 403 && !originalRequest._retry) {
