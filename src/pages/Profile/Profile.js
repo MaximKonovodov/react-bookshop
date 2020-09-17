@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getBooks } from '../../api';
 
 // import male from '../../media/Naruto.jpg';
 // import female from '../../media/Sakura.png';
@@ -8,15 +9,22 @@ import UserData from './components/UserData';
 import BookCollection from './components/BookCollection';
 import AddBook from './components/AddBook';
 
-const Profile = () => {
+const Profile = ({ user }) => {
   const [person, setPerson] = useState(null);
+  const [books, setBooks] = useState();
 
+  const loadBooks = async () => {
+    const data = await getBooks('');
+    setBooks(data.rows);
+  };
   useEffect(() => {
-    setPerson('Name');
+    setPerson(user);
+    loadBooks();
   }, []);
 
+  if (!person) return <div>Loading</div>;
   return (
-    <div>
+    <div className='container-md'>
       {/* <div className="row">
         <div className="col-sm-10">
           <h1>{person}</h1>
@@ -45,7 +53,7 @@ const Profile = () => {
           <DataNav />
           <div className='tab-content' id='myTabContent'>
             <UserData person={person} />
-            <BookCollection />
+            <BookCollection books={books} />
             <AddBook />
           </div>
         </div>

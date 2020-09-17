@@ -3,9 +3,11 @@ import React, { useContext, useState } from 'react';
 import useHttp from '../../hooks/http.hook';
 import { AuthContext } from '../../context/AuthContext';
 
+import { updateUser } from '../../store/main/actions';
+
 import ToastMessage from './components/Message';
 
-const AuthPage = (props, context) => {
+const AuthPage = ({ dispatch }) => {
   const auth = useContext(AuthContext);
   const { loading = null, request, error, clearError } = useHttp();
   const [form, setForm] = useState({
@@ -32,7 +34,7 @@ const AuthPage = (props, context) => {
         'POST',
         { ...form }
       );
-
+      dispatch(updateUser(data.user));
       auth.login(data.token);
     } catch (e) {}
   };
@@ -98,4 +100,5 @@ const AuthPage = (props, context) => {
     </>
   );
 };
+
 export default AuthPage;
