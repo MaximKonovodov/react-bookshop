@@ -52,14 +52,18 @@ const Sidebar = ({ filter, setFilter }) => {
     if (checked === false && name === 'category') {
       const arr = [];
       filter.categories.map((arrValue) => {
-        if (arrValue !== value) arr.push(arrValue);
+        if (arrValue !== value) {
+          arr.push(arrValue);
+        }
       });
       setFilter({ ...filter, categories: [...arr] });
     }
     if (checked === false && name === 'author') {
       const arr = [];
       filter.authors.map((arrValue) => {
-        if (arrValue !== value) arr.push(arrValue);
+        if (arrValue !== value) {
+          arr.push(arrValue);
+        }
       });
       setFilter({ ...filter, authors: [...arr] });
     }

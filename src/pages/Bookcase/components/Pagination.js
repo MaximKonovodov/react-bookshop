@@ -1,4 +1,3 @@
-import { filter } from 'lodash';
 import React from 'react';
 
 import Pagination from 'react-bootstrap/Pagination';
@@ -14,7 +13,7 @@ const Paginataion = ({ filter, setFilter, count }) => {
       <Pagination.Item
         key={number}
         name={number}
-        active={number == filter.page}
+        active={number === filter.page}
       >
         {number}
       </Pagination.Item>

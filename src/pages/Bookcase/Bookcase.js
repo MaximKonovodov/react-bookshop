@@ -61,7 +61,7 @@ const Bookcase = (props) => {
       </Row>
       <Row>
         <Col>
-          {filter.page == 0 && (
+          {booksCount > 10 && (
             <Pagination
               setFilter={setFilter}
               filter={filter}
